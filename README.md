@@ -52,3 +52,8 @@ Orders are processed manually by admin after customer checkout.
 - Frontend: Vercel
 - Backend: Render
 - Admin panel: Vercel
+ ## Status
+Under active development
+
+## Author
+Prince Musa Oil Money (PMOM)
