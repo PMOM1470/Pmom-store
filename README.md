@@ -1,6 +1,5 @@
-# PMOM Store
-
-PMOM Store is a simple and user-friendly e-commerce platform inspired by Jumia and Temu.
+PMOM Store is a modern e-commerce platform built for Nigerian customers,
+inspired by Jumia and Temu.
 
 ## Features
 - Product listing with scrolling products
