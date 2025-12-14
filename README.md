@@ -41,3 +41,7 @@ Orders are processed manually by admin after customer checkout.
 - frontend/ → Customer-facing store
 - backend/ → Orders, products, admin authentication
 - admin/ → Admin dashboard (only owner access)
+## Admin Access
+- Admin login is private
+- Two-factor authentication (Google Authenticator) is enabled for admin
+- Customers do NOT need accounts to buy
