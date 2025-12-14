@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo/pmom-store-logo.png" alt="PMOM Store Logo" width="180">
+</p>
+
 PMOM Store is a modern e-commerce platform built for Nigerian customers,
 inspired by Jumia and Temu.
 
