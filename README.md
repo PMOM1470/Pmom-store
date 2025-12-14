@@ -30,3 +30,10 @@ Orders are processed manually by admin after customer checkout.
 
 ## Status
 🚧 Under active development
+## Features
+- Product listings with scrolling products
+- Cash on Delivery (COD)
+- Secure admin dashboard (owner-only access)
+- Product & order management
+- Mobile-friendly interface
+- Designed for Nigerian customers
