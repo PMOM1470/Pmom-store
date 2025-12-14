@@ -37,3 +37,7 @@ Orders are processed manually by admin after customer checkout.
 - Product & order management
 - Mobile-friendly interface
 - Designed for Nigerian customers
+## Project Structure
+- frontend/ → Customer-facing store
+- backend/ → Orders, products, admin authentication
+- admin/ → Admin dashboard (only owner access)
