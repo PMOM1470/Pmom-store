@@ -45,3 +45,6 @@ Orders are processed manually by admin after customer checkout.
 - Admin login is private
 - Two-factor authentication (Google Authenticator) is enabled for admin
 - Customers do NOT need accounts to buy
+## Supplier Model
+- Products are sourced from Temu
+- Orders are processed manually by the admin after customer checkout
