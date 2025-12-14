@@ -1,0 +1,61 @@
+here<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PMOM Store</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; background: #f7f7f7; }
+    header { background: #000; color: #fff; padding: 16px; text-align: center; }
+    .container { padding: 16px; }
+    .products { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
+    .card { background: #fff; border-radius: 8px; padding: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+    .card img { width: 100%; border-radius: 6px; }
+    .card h3 { font-size: 14px; margin: 8px 0; }
+    .price { font-weight: bold; color: #0a7c2f; }
+    .btn { background: #0a7c2f; color: #fff; border: none; padding: 10px; width: 100%; border-radius: 6px; cursor: pointer; }
+    footer { text-align: center; padding: 12px; font-size: 12px; color: #555; }
+  </style>
+</head>
+<body><header>
+  <h1>PMOM Store</h1>
+  <p>Cash on Delivery • Nigeria</p>
+</header><div class="container">
+  <h2>Products</h2>
+  <div class="products" id="products"></div>
+</div><footer>
+  © 2025 PMOM Store
+</footer><script>
+  const whatsapp = "2348036199757";
+  const products = [
+    { name: "Wireless Earbuds", price: 12000 },
+    { name: "Smart Watch", price: 18000 },
+    { name: "Bluetooth Speaker", price: 15000 },
+    { name: "Power Bank", price: 10000 },
+    { name: "Phone Stand", price: 3500 },
+    { name: "USB Cable", price: 2500 },
+    { name: "LED Light", price: 8000 },
+    { name: "Mini Fan", price: 7000 },
+    { name: "Headphones", price: 14000 },
+    { name: "Car Charger", price: 4000 }
+  ];
+
+  const container = document.getElementById('products');
+
+  products.forEach(p => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <img src="https://via.placeholder.com/300x200?text=${encodeURIComponent(p.name)}" />
+      <h3>${p.name}</h3>
+      <p class="price">₦${p.price.toLocaleString()}</p>
+      <button class="btn" onclick="order('${p.name}', ${p.price})">Order via WhatsApp</button>
+    `;
+    container.appendChild(div);
+  });
+
+  function order(name, price) {
+    const msg = `Hello PMOM Store, I want to order ${name} for ₦${price}. Cash on Delivery.`;
+    window.open(`https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+</script></body>
+  </html>
