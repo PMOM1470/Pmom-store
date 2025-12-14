@@ -48,3 +48,7 @@ Orders are processed manually by admin after customer checkout.
 ## Supplier Model
 - Products are sourced from Temu
 - Orders are processed manually by the admin after customer checkout
+## Deployment
+- Frontend: Vercel
+- Backend: Render
+- Admin panel: Vercel
