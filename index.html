@@ -181,6 +181,48 @@ p
     <strong>PMOM Store</strong><br/>
     Pay on Delivery • Fast Dispatch • Trusted Supplier
   </footer>
+<!-- ADMIN PRODUCT ADD FORM -->
+<div id="admin" style="padding:20px; max-width:500px; margin:40px auto; border:1px solid #d4af37; border-radius:12px;">
+  <h2 style="text-align:center; color:#d4af37;">Add Product (Admin)</h2>
 
+  <input id="pname" placeholder="Product Name" style="width:100%; padding:10px; margin-bottom:10px;">
+  <input id="pprice" placeholder="Price (₦)" style="width:100%; padding:10px; margin-bottom:10px;">
+  <input id="pimage" placeholder="Image URL" style="width:100%; padding:10px; margin-bottom:10px;">
+  <input id="pwhatsapp" placeholder="WhatsApp Link" style="width:100%; padding:10px; margin-bottom:10px;">
+
+  <button onclick="addProduct()" style="width:100%; padding:12px; background:#d4af37; color:white; border:none; border-radius:8px;">
+    Add Product
+  </button>
+</div>
+
+<script>
+function addProduct() {
+  const name = document.getElementById("pname").value;
+  const price = document.getElementById("pprice").value;
+  const image = document.getElementById("pimage").value;
+  const whatsapp = document.getElementById("pwhatsapp").value;
+
+  if (!name || !price || !image || !whatsapp) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${image}">
+    <h3>${name}</h3>
+    <p>₦${price}</p>
+    <a href="${whatsapp}" target="_blank">Order on WhatsApp</a>
+  `;
+
+  document.querySelector(".products").appendChild(card);
+
+  document.getElementById("pname").value = "";
+  document.getElementById("pprice").value = "";
+  document.getElementById("pimage").value = "";
+  document.getElementById("pwhatsapp").value = "";
+}
+  </script>
 </body>
   </html>
