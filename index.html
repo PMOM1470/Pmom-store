@@ -232,32 +232,40 @@ function promptAdmin() {
 
 <script>
 function addProduct() {
-  const name = document.getElementById("pname").value;
-  const price = document.getElementById("pprice").value;
-  const image = document.getElementById("pimage").value;
-  const whatsapp = document.getElementById("pwhatsapp").value;
+  const name = pname.value;
+  const price = pprice.value;
+  const image = pimage.value;
+  const whatsapp = pwhatsapp.value;
 
   if (!name || !price || !image || !whatsapp) {
-    alert("Please fill all fields");
+    alert("Fill all fields");
     return;
   }
 
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `
-    <img src="${image}">
-    <h3>${name}</h3>
-    <p>₦${price}</p>
-    <a href="${whatsapp}" target="_blank">Order on WhatsApp</a>
-  `;
+  const product = { name, price, image, whatsapp };
+  const products = JSON.parse(localStorage.getItem("pmom")) || [];
+  products.push(product);
+  localStorage.setItem("pmom", JSON.stringify(products));
 
-  document.querySelector(".products").appendChild(card);
-
-  document.getElementById("pname").value = "";
-  document.getElementById("pprice").value = "";
-  document.getElementById("pimage").value = "";
-  document.getElementById("pwhatsapp").value = "";
+  renderProducts();
 }
-  </script>
+
+function renderProducts() {
+  const products = JSON.parse(localStorage.getItem("pmom")) || [];
+  products.forEach(p => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${p.image}">
+      <h3>${p.name}</h3>
+      <p>₦${p.price}</p>
+      <a href="${p.whatsapp}" target="_blank">Order on WhatsApp</a>
+    `;
+    document.querySelector(".products").appendChild(card);
+  });
+}
+
+renderProducts();
+</script>
 </body>
   </html>
