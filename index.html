@@ -194,7 +194,20 @@ p
   </div>
 
 </section>
+<button onclick="promptAdmin()" style="padding:10px; background:#d4af37; color:white; border:none; border-radius:8px;">
+Admin Login
+</button>
 
+<script>
+function promptAdmin() {
+  const pass = prompt("Enter Admin PIN");
+  if (pass === "PMOM1234") {
+    document.getElementById("admin").style.display = "block";
+  } else {
+    alert("Access denied");
+  }
+}
+  </script>
   <footer>
     <strong>PMOM Store</strong><br/>
     Pay on Delivery • Fast Dispatch • Trusted Supplier
