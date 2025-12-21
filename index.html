@@ -217,12 +217,12 @@ function promptAdmin() {
     Pay on Delivery • Fast Dispatch • Trusted Supplier
   </footer>
 <!-- ADMIN PRODUCT ADD FORM -->
-<div id="admin" style="display:none; padding:20px;
+<div id="admin" style="display:none; padding:20px; max-width:500px; margin:40px auto; border:1px solid #d4af37; border-radius:12px;">
   <h2 style="text-align:center; color:#d4af37;">Add Product (Admin)</h2>
 
   <input id="pname" placeholder="Product Name" style="width:100%; padding:10px; margin-bottom:10px;">
   <input id="pprice" placeholder="Price (₦)" style="width:100%; padding:10px; margin-bottom:10px;">
-  <input id="pimage" placeholder="Image URL" style="width:100%; padding:10px; margin-bottom:10px;">
+  <input id="pimage" placeholder="Image file name (e.g sneakers.jpg)" style="width:100%; padding:10px; margin-bottom:10px;">
   <input id="pwhatsapp" placeholder="WhatsApp Link" style="width:100%; padding:10px; margin-bottom:10px;">
 
   <button onclick="addProduct()" style="width:100%; padding:12px; background:#d4af37; color:white; border:none; border-radius:8px;">
@@ -232,40 +232,32 @@ function promptAdmin() {
 
 <script>
 function addProduct() {
-  const name = pname.value;
-  const price = pprice.value;
-  const image = pimage.value;
-  const whatsapp = pwhatsapp.value;
+  const name = document.getElementById("pname").value;
+  const price = document.getElementById("pprice").value;
+  const image = document.getElementById("pimage").value;
+  const whatsapp = document.getElementById("pwhatsapp").value;
 
   if (!name || !price || !image || !whatsapp) {
-    alert("Fill all fields");
+    alert("Please fill all fields");
     return;
   }
 
-  const product = { name, price, image, whatsapp };
-  const products = JSON.parse(localStorage.getItem("pmom")) || [];
-  products.push(product);
-  localStorage.setItem("pmom", JSON.stringify(products));
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <img src="${image}">
+    <h3>${name}</h3>
+    <p>₦${price}</p>
+    <a href="${whatsapp}" target="_blank">Order on WhatsApp</a>
+  `;
 
-  renderProducts();
+  document.querySelector(".products").appendChild(card);
+
+  document.getElementById("pname").value = "";
+  document.getElementById("pprice").value = "";
+  document.getElementById("pimage").value = "";
+  document.getElementById("pwhatsapp").value = "";
 }
-
-function renderProducts() {
-  const products = JSON.parse(localStorage.getItem("pmom")) || [];
-  products.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="${p.image}">
-      <h3>${p.name}</h3>
-      <p>₦${p.price}</p>
-      <a href="${p.whatsapp}" target="_blank">Order on WhatsApp</a>
-    `;
-    document.querySelector(".products").appendChild(card);
-  });
-}
-
-renderProducts();
 </script>
 </body>
   </html>
