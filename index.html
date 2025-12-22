@@ -186,9 +186,7 @@ header {
   </section>
   
 </section>
-<button onclick="promptAdmin()" style="padding:10px; background:#d4af37; color:white; border:none; border-radius:8px;">
-Admin Login
-</button>
+
 
 <script>
 function promptAdmin() {
@@ -247,5 +245,11 @@ function addProduct() {
   document.getElementById("pwhatsapp").value = "";
 }
 </script>
+  <script>
+  // Secret admin access
+  if (window.location.hash === "#admin") {
+    document.getElementById("admin").style.display = "block";
+  }
+  </script>
 </body>
   </html>
