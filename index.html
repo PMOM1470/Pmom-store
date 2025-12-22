@@ -180,7 +180,15 @@ header {
   </div>
         </section>
   <div class="categories">
-  <button onclick="filterProducts('all')">All</button>
+  <div class="search-box">
+  <input
+    type="text"
+    id="searchInput"
+    placeholder="Search products..."
+    onkeyup="searchProducts()"
+  />
+  </div>
+    <button onclick="filterProducts('all')">All</button>
   <button onclick="filterProducts('sneakers')">Sneakers</button>
   <button onclick="filterProducts('watches')">Watches</button>
   <button onclick="filterProducts('gadgets')">Gadgets</button>
