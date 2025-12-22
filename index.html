@@ -266,5 +266,17 @@ function addProduct() {
     document.getElementById("admin").style.display = "block";
   }
   </script>
+<script>
+function filterProducts(category) {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach(card => {
+    if (category === "all" || card.dataset.category === category) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+}
+</script>
 </body>
   </html>
