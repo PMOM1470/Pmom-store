@@ -49,7 +49,7 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const name = params.get("name");
-const price = params.get("price");
+const price = Number(params.get("price"));
 
 document.getElementById("product").innerText = name;
 document.getElementById("price").innerText = price;
