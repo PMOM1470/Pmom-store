@@ -66,21 +66,34 @@ totalEl.innerText = price;
 qtyInput.addEventListener("input", () => {
   totalEl.innerText = price * qtyInput.value;
 });
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const price = params.get("price");
+
+document.getElementById("product").innerText = name;
+document.getElementById("price").innerText = price;
+
 function orderNow() {
-  const qty = Number(document.getElementById("quantity").value);
-  const total = price * qty;
+  const customerName = document.getElementById("customerName").value;
+  const customerPhone = document.getElementById("customerPhone").value;
+
+  if (!customerName || !customerPhone) {
+    alert("Please enter your name and phone number");
+    return;
+  }
 
   const message =
-    `Hello PMOM Store,%0A` +
-    `I want to order:%0A` +
+    `Hello PMOM Store,%0A%0A` +
     `Product: ${name}%0A` +
-    `Price: ₦${price}%0A` +
-    `Quantity: ${qty}%0A` +
-    `Total: ₦${total}`;
+    `Price: ₦${price}%0A%0A` +
+    `Customer Name: ${customerName}%0A` +
+    `Phone Number: ${customerPhone}`;
 
   window.location.href =
     "https://wa.me/2348036199757?text=" + message;
-  }
+}
+</script>
 </script>
 
 </body>
