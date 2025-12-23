@@ -64,10 +64,20 @@ qtyInput.addEventListener("input", () => {
   totalEl.innerText = price * qtyInput.value;
 });
 function orderNow() {
-  const message = `Hello PMOM Store, I want to order ${name} for ₦${price}. Pay on Delivery.`;
+  const qty = Number(document.getElementById("quantity").value);
+  const total = price * qty;
+
+  const message =
+    `Hello PMOM Store,%0A` +
+    `I want to order:%0A` +
+    `Product: ${name}%0A` +
+    `Price: ₦${price}%0A` +
+    `Quantity: ${qty}%0A` +
+    `Total: ₦${total}`;
+
   window.location.href =
-    "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
-}
+    "https://wa.me/2348036199757?text=" + message;
+  }
 </script>
 
 </body>
