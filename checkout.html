@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Summary - PMOM Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #fafafa;
+    }
+    .box {
+      max-width: 420px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 14px;
+      border: 1px solid #d4af37;
+      text-align: center;
+    }
+    button {
+      background: #25D366;
+      color: white;
+      padding: 14px;
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Order Summary</h2>
+    <p><strong id="product"></strong></p>
+    <p>Price: ₦<span id="price"></span></p>
+
+    <button onclick="orderNow()">Confirm Order on WhatsApp</button>
+  </div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+const price = params.get("price");
+
+document.getElementById("product").innerText = name;
+document.getElementById("price").innerText = price;
+
+function orderNow() {
+  const message = `Hello PMOM Store, I want to order ${name} for ₦${price}. Pay on Delivery.`;
+  window.location.href =
+    "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
+}
+</script>
+
+</body>
+  </html>
