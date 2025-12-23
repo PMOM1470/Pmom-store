@@ -51,32 +51,29 @@
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+const productName = params.get("name");
 const price = Number(params.get("price"));
 
-document.getElementById("product").innerText = name;
+document.getElementById("product").innerText = productName;
 document.getElementById("price").innerText = price;
-const qtyInput = document.getElementById("quantity");
-const totalEl = document.getElementById("total");
 
-// initial total
-totalEl.innerText = price;
+// Quantity & total calculation
+const quantityInput = document.getElementById("quantity");
+const totalPriceEl = document.getElementById("total-price");
 
-// update total when quantity changes
-qtyInput.addEventListener("input", () => {
-  totalEl.innerText = price * qtyInput.value;
-});
-<script>
-const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
-const price = params.get("price");
+function updateTotal() {
+  const qty = Number(quantityInput.value);
+  totalPriceEl.innerText = price * qty;
+}
 
-document.getElementById("product").innerText = name;
-document.getElementById("price").innerText = price;
+updateTotal();
+quantityInput.addEventListener("input", updateTotal);
 
 function orderNow() {
-  const customerName = document.getElementById("customerName").value;
-  const customerPhone = document.getElementById("customerPhone").value;
+  const customerName = document.getElementById("customerName").value.trim();
+  const customerPhone = document.getElementById("customerPhone").value.trim();
+  const quantity = Number(quantityInput.value);
+  const total = price * quantity;
 
   if (!customerName || !customerPhone) {
     alert("Please enter your name and phone number");
@@ -84,14 +81,18 @@ function orderNow() {
   }
 
   const message =
-    `Hello PMOM Store,%0A%0A` +
-    `Product: ${name}%0A` +
-    `Price: ₦${price}%0A%0A` +
-    `Customer Name: ${customerName}%0A` +
-    `Phone Number: ${customerPhone}`;
+`Hello PMOM Store,
+
+Product: ${productName}
+Price: ₦${price}
+Quantity: ${quantity}
+Total: ₦${total}
+
+Customer Name: ${customerName}
+Phone Number: ${customerPhone}`;
 
   window.location.href =
-    "https://wa.me/2348036199757?text=" + message;
+    "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
 }
 </script>
 </script>
