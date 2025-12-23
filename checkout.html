@@ -53,7 +53,16 @@ const price = Number(params.get("price"));
 
 document.getElementById("product").innerText = name;
 document.getElementById("price").innerText = price;
+const qtyInput = document.getElementById("quantity");
+const totalEl = document.getElementById("total");
 
+// initial total
+totalEl.innerText = price;
+
+// update total when quantity changes
+qtyInput.addEventListener("input", () => {
+  totalEl.innerText = price * qtyInput.value;
+});
 function orderNow() {
   const message = `Hello PMOM Store, I want to order ${name} for ₦${price}. Pay on Delivery.`;
   window.location.href =
