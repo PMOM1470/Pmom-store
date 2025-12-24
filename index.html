@@ -6,6 +6,24 @@
   <title>PMOM Store</title>
 
  <style>
+.card img {
+  width: 100%;
+  height: 240px;          /* makes image bigger */
+  object-fit: contain;    /* prevents cutting */
+  background: #f2f2f2;    /* dims white background */
+  padding: 12px;
+  border-radius: 12px;
+}
+.card {
+  background: #fafafa;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+@media (max-width: 600px) {
+  .card img {
+    height: 200px;
+  }
+}
 /* BIGGER PRODUCT IMAGES */
 .card img {
   width: 200%;
