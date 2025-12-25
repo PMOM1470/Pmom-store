@@ -6,6 +6,45 @@
   <title>PMOM Store</title>
 
  <style>
+/* ===== Products grid layout ===== */
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 per row on mobile */
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Tablets */
+@media (min-width: 768px) {
+  .products {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .products {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ===== Card refinement ===== */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ===== Image consistency ===== */
+.card img {
+  height: 180px;
+  object-fit: contain;
+}
+
+/* ===== Button fixed to bottom ===== */
+.card a {
+  margin-top: auto;
+}
 /* ===== Global background ===== */
 body {
   background-color: #f5f6f8; /* soft grey instead of white */
