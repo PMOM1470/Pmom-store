@@ -6,6 +6,87 @@
   <title>PMOM Store</title>
 
  <style>
+/* ===== Global background ===== */
+body {
+  background-color: #f5f6f8; /* soft grey instead of white */
+  color: #222;
+}
+
+/* ===== Header ===== */
+header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+/* ===== Product section ===== */
+.products {
+  padding: 20px;
+}
+
+/* ===== Product cards ===== */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+}
+
+/* ===== Product images ===== */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* no image cutting */
+  background: #f8f8f8;
+  border-radius: 8px;
+}
+
+/* ===== Product title ===== */
+.card h3 {
+  font-size: 16px;
+  margin: 10px 0 6px;
+}
+
+/* ===== Price ===== */
+.price {
+  font-weight: bold;
+  color: #0a7cff; /* clean blue */
+}
+
+/* ===== Buttons ===== */
+.card a {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  background: #0a7cff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.card a:hover {
+  background: #065ec9;
+}
+
+/* ===== Categories buttons ===== */
+.categories button {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+.categories button:hover {
+  background: #0a7cff;
+  color: #fff;
+}
 .card img {
   width: 100%;
   height: 240px;          /* makes image bigger */
