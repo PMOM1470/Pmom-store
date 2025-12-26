@@ -168,20 +168,21 @@ function orderNow() {
     return;
   }
 
-  const message =
-`Hello PMOM Store,
+  const message = `
+NEW ORDER - PMOM STORE
 
-Product: ${productName}
+Product: ${product}
 Price: ₦${price}
 Quantity: ${quantity}
 Total: ₦${total}
 
-Customer Name: ${customerName}
-Phone Number: ${customerPhone}`;
+Customer Name: ${name}
+Phone Number: ${phone}
 
-  window.location.href =
-    "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
-}
+Payment Method: Pay on Delivery
+`;
+
+window.location.href = "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
 </script>
 </script>
 
