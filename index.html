@@ -6,6 +6,25 @@
   <title>PMOM Store</title>
 
  <style>
+/* ===== Trust Badges ===== */
+.trust-badges {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 20px;
+  margin: 10px 15px 25px;
+}
+
+.trust-item {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
 /* ===== Global background ===== */
 body {
   background: #f6f6f6; /* soft light grey instead of white */
@@ -523,7 +542,12 @@ Order on WhatsApp
     </a>
   </div>
   </section>
-  
+ <div class="trust-badges">
+  <div class="trust-item">💰 Pay on Delivery</div>
+  <div class="trust-item">🚚 Fast Delivery</div>
+  <div class="trust-item">⭐ Trusted Supplier</div>
+  <div class="trust-item">💬 WhatsApp Support</div>
+  </div> 
 </section>
 
 
