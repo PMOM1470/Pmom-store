@@ -157,19 +157,22 @@ function updateTotal() {
 updateTotal();
 quantityInput.addEventListener("input", updateTotal);
 
+<script>
 function orderNow() {
-  const customerName = document.getElementById("customerName").value.trim();
-  const customerPhone = document.getElementById("customerPhone").value.trim();
-  const quantity = Number(quantityInput.value);
-  const total = price * quantity;
+  const name = document.getElementById("customerName").value;
+  const phone = document.getElementById("customerPhone").value;
+  const quantity = document.getElementById("quantity").value;
+  const product = document.getElementById("product").innerText;
+  const price = document.getElementById("price").innerText;
+  const total = document.getElementById("total-price").innerText;
 
-  if (!customerName || !customerPhone) {
-    alert("Please enter your name and phone number");
+  if (!name || !phone) {
+    alert("Please fill your name and phone number");
     return;
   }
 
-  const message = `
-NEW ORDER - PMOM STORE
+  const message =
+`NEW ORDER - PMOM STORE
 
 Product: ${product}
 Price: ₦${price}
@@ -179,12 +182,13 @@ Total: ₦${total}
 Customer Name: ${name}
 Phone Number: ${phone}
 
-Payment Method: Pay on Delivery
-`;
+Payment Method: Pay on Delivery`;
 
-window.location.href = "https://wa.me/2348036199757?text=" + encodeURIComponent(message);
+  const whatsappNumber = "2348036199757";
+  const whatsappURL = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
 
-  }
+  window.location.href = whatsappURL;
+}
 </script>
 
 
